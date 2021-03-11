@@ -4,8 +4,14 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var listJenis = ["Laki-laki", "Perempuan"];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,17 +22,24 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          //judul dari project
           title: Text("Kalkulator Sehat"),
         ),
-        body: DropdownButton(
-          items: [
-            DropdownMenuItem(
-                value: "Kelvin", child: Container(child: Text("Kelvin"))),
-            DropdownMenuItem(
-                value: "Reamur", child: Container(child: Text("Reamur"))),
+        body: Column(
+          children: [
+            DropdownButton(
+              //dropdown yang digunakan untuk memasukkan jenis kelamin
+              items: [
+                DropdownMenuItem(
+                    value: "Kelvin", child: Container(child: Text("Kelvin"))),
+                DropdownMenuItem(
+                    value: "Reamur", child: Container(child: Text("Reamur"))),
+              ],
+              isExpanded: true,
+              value: "Kelvin",
+              onChanged: (value) {},
+            ),
           ],
-          value: null,
-          onChanged: (String changeValue) {},
         ),
       ),
     );
