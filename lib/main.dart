@@ -12,6 +12,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var listJenis = ["Laki-laki", "Perempuan"];
+  String _jenis = "Perempuan";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,17 +29,20 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            DropdownButton(
-              //dropdown yang digunakan untuk memasukkan jenis kelamin
-              items: [
-                DropdownMenuItem(
-                    value: "Kelvin", child: Container(child: Text("Kelvin"))),
-                DropdownMenuItem(
-                    value: "Reamur", child: Container(child: Text("Reamur"))),
-              ],
+            DropdownButton<String>(
+              items: listJenis.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
               isExpanded: true,
-              value: "Kelvin",
-              onChanged: (value) {},
+              value: _jenis,
+              onChanged: (String changeValue) {
+                setState(() {
+                  _jenis = changeValue;
+                });
+              },
             ),
           ],
         ),
