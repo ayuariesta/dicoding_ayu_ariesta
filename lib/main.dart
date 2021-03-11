@@ -14,6 +14,12 @@ class _MyAppState extends State<MyApp> {
   var listJenis = ["Laki-laki", "Perempuan"];
   String _jenis = "Perempuan";
 
+  _dropdownChange(String value) {
+    setState(() {
+      _jenis = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,11 +44,7 @@ class _MyAppState extends State<MyApp> {
               }).toList(),
               isExpanded: true,
               value: _jenis,
-              onChanged: (String changeValue) {
-                setState(() {
-                  _jenis = changeValue;
-                });
-              },
+              onChanged: _dropdownChange,
             ),
           ],
         ),
