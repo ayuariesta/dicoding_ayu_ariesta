@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,6 +14,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var listJenis = ["Laki-laki", "Perempuan"];
   String _jenis = "Perempuan";
+  var inputSuhu = new TextEditingController();
 
   _dropdownChange(String value) {
     setState(() {
@@ -35,6 +37,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
+            //dropdown untuk memilih jenis kelamin
             DropdownButton<String>(
               items: listJenis.map((String value) {
                 return DropdownMenuItem<String>(
@@ -45,6 +48,15 @@ class _MyAppState extends State<MyApp> {
               isExpanded: true,
               value: _jenis,
               onChanged: _dropdownChange,
+            ),
+            //form untuk memasukkan usia
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Masukkan Usia',
+              ),
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              controller: inputSuhu,
+              keyboardType: TextInputType.numberWithOptions(decimal: true),
             ),
           ],
         ),
