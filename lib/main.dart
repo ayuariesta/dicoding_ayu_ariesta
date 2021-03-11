@@ -13,7 +13,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      home:
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Kalkulator Sehat"),
+        ),
+      ),
     );
   }
 }
