@@ -16,6 +16,7 @@ class _MyAppState extends State<MyApp> {
   String _jenis = "Perempuan";
   var inputSuhu = new TextEditingController();
   var inputTB = new TextEditingController();
+  var inputBB = new TextEditingController();
 
   _dropdownChange(String value) {
     setState(() {
@@ -69,17 +70,45 @@ class _MyAppState extends State<MyApp> {
                         TextInputType.numberWithOptions(decimal: true),
                   ),
                 ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: TextFormField(
+                    decoration:
+                        InputDecoration(hintText: 'Masukkan Tinggi badan'),
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    controller: inputTB,
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
+                  ),
+                ),
+                //form untuk memasukkan tinggi badan
+                Container(
+                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: TextFormField(
+                    decoration:
+                        InputDecoration(hintText: 'Masukkan Berat badan'),
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    controller: inputBB,
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(15),
+                  height: 40,
+                  width: 180,
+                  child: RaisedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Hitung',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    textColor: Colors.white,
+                    color: Colors.pink,
+                  ),
+                ),
               ],
             ),
-            //form untuk memasukkan tinggi badan
-            Container(
-              child: TextFormField(
-                decoration: InputDecoration(hintText: 'Masukkan Tinggi badan'),
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                controller: inputTB,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-              ),
-            )
           ],
         ),
       ),
