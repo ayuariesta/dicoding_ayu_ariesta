@@ -15,6 +15,7 @@ class _MyAppState extends State<MyApp> {
   var listJenis = ["Laki-laki", "Perempuan"];
   String _jenis = "Perempuan";
   var inputSuhu = new TextEditingController();
+  var inputTB = new TextEditingController();
 
   _dropdownChange(String value) {
     setState(() {
@@ -37,27 +38,48 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            //dropdown untuk memilih jenis kelamin
-            DropdownButton<String>(
-              items: listJenis.map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              isExpanded: true,
-              value: _jenis,
-              onChanged: _dropdownChange,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                //dropdown untuk memilih jenis kelamin
+                Container(
+                  margin: EdgeInsets.all(5),
+                  child: DropdownButton<String>(
+                    items: listJenis.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    isExpanded: true,
+                    value: _jenis,
+                    onChanged: _dropdownChange,
+                  ),
+                ),
+                //form untuk memasukkan usia
+                Container(
+                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Masukkan Usia',
+                    ),
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    controller: inputSuhu,
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
+                  ),
+                ),
+              ],
             ),
-            //form untuk memasukkan usia
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Masukkan Usia',
+            //form untuk memasukkan tinggi badan
+            Container(
+              child: TextFormField(
+                decoration: InputDecoration(hintText: 'Masukkan Tinggi badan'),
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                controller: inputTB,
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              controller: inputSuhu,
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
-            ),
+            )
           ],
         ),
       ),
