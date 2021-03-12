@@ -72,6 +72,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   Container(
                     margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                    //untuk melakukan input tinggi badan
                     child: TextFormField(
                       decoration:
                           InputDecoration(hintText: 'Masukkan Tinggi badan'),
@@ -99,6 +100,7 @@ class _MyAppState extends State<MyApp> {
                     margin: EdgeInsets.fromLTRB(80, 20, 80, 30),
                     height: 40,
                     width: 180,
+                    //digunakan untuk melakukan perhitungan
                     child: RaisedButton(
                       onPressed: () {},
                       child: Text(
@@ -114,6 +116,7 @@ class _MyAppState extends State<MyApp> {
               Column(
                 children: [
                   Container(
+                    //untuk menampilkan hasil dari perhitungan
                     margin: EdgeInsets.fromLTRB(0, 0, 250, 20),
                     child: Text(
                       "BMI = ",
