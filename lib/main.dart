@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'convert.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,15 +36,6 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  // ignore: unused_element
-  _rumusBMI() {
-    setState(() {
-      _inputTinggi = double.parse(inputTB.text);
-      _inputBerat = double.parse(inputBB.text);
-      _resultBMI = (_inputBerat * 10000) / (_inputBerat * _inputBerat);
-    });
-  }
-
   _rumusBMR() {
     setState(() {
       _inputTinggi = double.parse(inputTB.text);
@@ -59,6 +51,25 @@ class _MyAppState extends State<MyApp> {
             (9.6 * _inputBerat) +
             (1.8 * _inputTinggi) -
             (4.7 * _inputUsia);
+    });
+  }
+
+  _rumusBMI() {
+    setState(() {
+      _inputTinggi = double.parse(inputTB.text);
+      _inputBerat = double.parse(inputBB.text);
+      _resultBMI = (_inputBerat * 10000) / (_inputTinggi * _inputTinggi);
+    });
+  }
+
+  _rumusIdeal() {
+    setState(() {
+      _inputTinggi = double.parse(inputTB.text);
+      _inputBerat = double.parse(inputBB.text);
+      if (_jenis == "Perempuan")
+        _resultIdeal = (_inputTinggi - 100) - ((_inputTinggi - 100) * 0.15);
+      else
+        _resultIdeal = (_inputTinggi - 100) - ((_inputTinggi - 100) * 0.10);
     });
   }
 
@@ -134,20 +145,12 @@ class _MyAppState extends State<MyApp> {
               ),
               Column(
                 children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(80, 20, 80, 30),
-                    height: 40,
-                    width: 180,
-                    //digunakan untuk melakukan perhitungan
-                    child: RaisedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Hitung',
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      textColor: Colors.white,
-                      color: Colors.pink,
-                    ),
+                  Row(
+                    children: [
+                      Convert(title: "BMI", hitung: _rumusBMI),
+                      Convert(title: "BMR", hitung: _rumusBMR),
+                      Convert(title: "Berat Ideal", hitung: _rumusIdeal),
+                    ],
                   ),
                 ],
               ),
@@ -155,23 +158,23 @@ class _MyAppState extends State<MyApp> {
                 children: [
                   Container(
                     //untuk menampilkan hasil dari perhitungan
-                    margin: EdgeInsets.fromLTRB(0, 0, 250, 20),
+                    margin: EdgeInsets.all(10),
                     child: Text(
                       "BMI = " + '$_resultBMI',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 240, 20),
+                    margin: EdgeInsets.all(10),
                     child: Text(
                       "BMR = " + '$_resultBMR',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 140, 20),
+                    margin: EdgeInsets.all(10),
                     child: Text(
-                      "Berat badan ideal = " + '$_resultIdeal',
+                      "Berat badan ideal = " + '$_resultIdeal' + 'kg',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
