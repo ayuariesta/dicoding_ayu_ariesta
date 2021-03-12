@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Convert extends StatelessWidget {
-  const Convert({
-    Key key,
-  }) : super(key: key);
+  const Convert({Key key, @required String title})
+      : _title = title,
+        super(key: key);
+
+  final String _title;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class Convert extends StatelessWidget {
       child: RaisedButton(
         onPressed: () {},
         child: Text(
-          'Hitung',
+          _title,
           style: TextStyle(fontSize: 17),
         ),
         textColor: Colors.white,
