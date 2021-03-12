@@ -10,9 +10,7 @@ class Convert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(80, 20, 80, 30),
-      height: 40,
-      width: 180,
+      margin: EdgeInsets.fromLTRB(15, 5, 3, 7),
       //digunakan untuk melakukan perhitungan
       child: RaisedButton(
         onPressed: () {},
