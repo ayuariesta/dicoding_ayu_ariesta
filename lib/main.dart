@@ -13,6 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  //controller
   var listJenis = ["Laki-laki", "Perempuan"];
   String _jenis = "Perempuan";
   var inputUsia = new TextEditingController();
@@ -36,6 +37,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  //rumus menghitung BMR
   _rumusBMR() {
     setState(() {
       _inputTinggi = double.parse(inputTB.text);
@@ -54,6 +56,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  //rumus menghitung BMI
   _rumusBMI() {
     setState(() {
       _inputTinggi = double.parse(inputTB.text);
@@ -62,6 +65,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  //rumus menghitung berat badan ideal
   _rumusIdeal() {
     setState(() {
       _inputTinggi = double.parse(inputTB.text);
@@ -146,6 +150,7 @@ class _MyAppState extends State<MyApp> {
               Column(
                 children: [
                   Row(
+                    //button untuk konversi
                     children: [
                       Convert(title: "BMI", hitung: _rumusBMI),
                       Convert(title: "BMR", hitung: _rumusBMR),
@@ -157,7 +162,7 @@ class _MyAppState extends State<MyApp> {
               Column(
                 children: [
                   Container(
-                    //untuk menampilkan hasil dari perhitungan
+                    //untuk menampilkan hasil dari perhitungan BMI
                     margin: EdgeInsets.all(10),
                     child: Text(
                       "BMI = " + '$_resultBMI',
@@ -165,6 +170,7 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Container(
+                    //untuk menampilkan hasil dari perhitungan BMR
                     margin: EdgeInsets.all(10),
                     child: Text(
                       "BMR = " + '$_resultBMR',
@@ -172,6 +178,7 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Container(
+                    //untuk menampilkan hasil dari perhitungan Berat badan ideal
                     margin: EdgeInsets.all(10),
                     child: Text(
                       "Berat badan ideal = " + '$_resultIdeal' + 'kg',
