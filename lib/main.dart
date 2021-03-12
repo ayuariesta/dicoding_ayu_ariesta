@@ -27,9 +27,6 @@ class _MyAppState extends State<MyApp> {
   double _inputUsia = 0;
   double _inputTinggi = 0;
   double _inputBerat = 0;
-  double _usia = 0;
-  double _tinggi = 0;
-  double _berat = 0;
   double _resultBMI = 0;
   double _resultBMR = 0;
   double _resultIdeal = 0;
@@ -156,14 +153,6 @@ class _MyAppState extends State<MyApp> {
                     margin: EdgeInsets.all(10),
                     child: Text(
                       "Berat badan ideal = " + '$_resultIdeal' + ' kg',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                  Container(
-                    //untuk menampilkan hasil dari perhitungan Berat badan ideal
-                    margin: EdgeInsets.all(10),
-                    child: Text(
-                      "Kategori = " + '$_resultIdeal',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
