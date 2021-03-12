@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'beratBadan.dart';
+import 'tinggiBadan.dart';
 import 'convert.dart';
+import 'formUsia.dart';
 
 void main() {
   runApp(MyApp());
@@ -112,39 +115,10 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   //form untuk memasukkan usia
-                  Container(
-                    margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Masukkan Usia',
-                      ),
-                      controller: inputUsia,
-                      keyboardType:
-                          TextInputType.numberWithOptions(decimal: true),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                    //untuk melakukan input tinggi badan
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          hintText: 'Masukkan Tinggi badan (cm)'),
-                      controller: inputTB,
-                      keyboardType:
-                          TextInputType.numberWithOptions(decimal: true),
-                    ),
-                  ),
+                  Formulir(inputUsia: inputUsia),
+                  FormTB(inputTB: inputTB),
                   //form untuk memasukkan tinggi badan
-                  Container(
-                    margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                    child: TextFormField(
-                      decoration:
-                          InputDecoration(hintText: 'Masukkan Berat badan'),
-                      controller: inputBB,
-                      keyboardType:
-                          TextInputType.numberWithOptions(decimal: true),
-                    ),
-                  ),
+                  FormBB(inputBB: inputBB),
                 ],
               ),
               Column(
@@ -181,7 +155,15 @@ class _MyAppState extends State<MyApp> {
                     //untuk menampilkan hasil dari perhitungan Berat badan ideal
                     margin: EdgeInsets.all(10),
                     child: Text(
-                      "Berat badan ideal = " + '$_resultIdeal' + 'kg',
+                      "Berat badan ideal = " + '$_resultIdeal' + ' kg',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  Container(
+                    //untuk menampilkan hasil dari perhitungan Berat badan ideal
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      "Kategori = " + '$_resultIdeal',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
