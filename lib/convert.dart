@@ -13,7 +13,7 @@ class Convert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(15, 20, 3, 7),
+      margin: EdgeInsets.fromLTRB(15, 50, 3, 7),
       child: RaisedButton(
         //memasukkan function hitung di onPressed
         onPressed: _hitung,

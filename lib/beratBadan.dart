@@ -11,7 +11,7 @@ class FormBB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+      margin: EdgeInsets.fromLTRB(35, 5, 35, 5),
       child: TextFormField(
         decoration: InputDecoration(hintText: 'Masukkan Berat badan'),
         controller: inputBB,

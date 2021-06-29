@@ -11,7 +11,7 @@ class FormTB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+      margin: EdgeInsets.fromLTRB(35, 15, 35, 15),
       //untuk melakukan input tinggi badan
       child: TextFormField(
         decoration: InputDecoration(hintText: 'Masukkan Tinggi badan (cm)'),

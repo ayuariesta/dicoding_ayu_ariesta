@@ -11,7 +11,7 @@ class Formulir extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+      margin: EdgeInsets.fromLTRB(35, 0, 35, 10),
       child: TextFormField(
         decoration: InputDecoration(
           hintText: 'Masukkan Usia',
